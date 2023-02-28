@@ -1,0 +1,68 @@
+/* -----------Start section tour-main ------------*/
+#tour {
+    background-color: var(--lightgray-color);
+    padding: 50px 0px;
+}
+
+
+.row-style {
+    background-color: var(--white-color);
+    padding: 20px 10px;
+    border-radius: 20px;
+}
+
+.img-icon i {
+    font-size: 100px;
+    color: var(--black-color);
+}
+
+
+.img-side img {
+    object-fit: cover;
+}
+
+.row-second {
+    margin-top: 50px;
+}
+
+.icon-details {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-details i {
+    font-size: 20px;
+    margin-right: 5px;
+    color: var(--black-color);
+}
+
+.input-details {
+    width: 80%
+}
+
+
+.form-control:focus,.form-select:focus {
+    box-shadow: 0 0 0 0.1rem var(--black-color);
+    border: 1px solid #ced4da;
+}
+
+.form-select {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: calc(2.5rem + 2px);
+}
+
+.form-select:focus
+
+textarea {
+    resize: none;
+}
+
+.btn {
+    padding: 0.5rem 2rem;
+    width: 50%;
+}
+
+/* -----------End section tour-main ------------*/
