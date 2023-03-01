@@ -23,7 +23,7 @@
 
               <div
                 *ngIf="
-                  !flag || (!emailValid && this.validationForm.value['email'])
+                  (!emailValid && this.validationForm.value['email'])
                 "
                 class="alert alert-danger my-1"
                 role="alert"
@@ -41,7 +41,7 @@
               />
               <div
                 *ngIf="
-                  !flag ||
+                  
                   (!passwordValid && this.validationForm.value['password'])
                 "
                 class="alert alert-danger my-1"
@@ -57,11 +57,12 @@
                 (click)="login()"
               /> -->
             <pre></pre>
-            <a routerLink="/admin/home"
+            <a 
               ><input
                 type="submit"
                 class="btn btn-dark w-100 my-3"
                 value="Login"
+                (click)="login()"
             /></a>
 
             <pre></pre>

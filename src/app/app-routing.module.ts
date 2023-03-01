@@ -9,13 +9,13 @@ import { AdminSignupComponent } from './Pages/admin-signup/admin-signup.componen
 
 const routes: Routes = [
   { path: '', component: AdminHomeComponent },
-  { path: 'admin/home', component: AdminHomeComponent },
+  { path: 'admin/home/:id', component: AdminHomeComponent },
   { path: 'admin/login', component: AdminLoginComponent, },
   { path: 'admin/signup', component: AdminSignupComponent },
   {
     path: 'admin/createtour', component: AdminCreateTourComponent
   },
-  { path: 'admin/:id', component: AdminProfileComponent },
+  { path: 'admin/profile/:id', component: AdminProfileComponent },
 ];
 
 @NgModule({

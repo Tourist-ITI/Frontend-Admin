@@ -19,7 +19,7 @@
 
               <div
                 *ngIf="
-                  !flag || (!nameValid && this.validationForm.value['username'])
+                  !nameValid && this.validationForm.value['username']
                 "
                 class="alert alert-danger my-1"
                 role="alert"
@@ -37,7 +37,7 @@
               />
               <div
                 *ngIf="
-                  !flag || (!phoneValid && this.validationForm.value['phone'])
+                  !phoneValid && this.validationForm.value['phone']
                 "
                 class="alert alert-danger my-1"
                 role="alert"
@@ -55,13 +55,13 @@
               />
               <div
                 *ngIf="
-                  !flag ||
-                  (!nationalIdValid && this.validationForm.value['nationalId'])
+                  
+                  !nationalIdValid && this.validationForm.value['nationalId']
                 "
                 class="alert alert-danger my-1"
                 role="alert"
               >
-                National Id must be 14 digits
+                National Id must be 16 digits
               </div>
             </div>
 
@@ -75,7 +75,7 @@
               />
               <div
                 *ngIf="
-                  !flag || (!emailValid && this.validationForm.value['email'])
+                  !emailValid && this.validationForm.value['email']
                 "
                 class="alert alert-danger my-1"
                 role="alert"
@@ -93,8 +93,8 @@
               />
               <div
                 *ngIf="
-                  !flag ||
-                  (!passwordValid && this.validationForm.value['password'])
+                
+                  !passwordValid && this.validationForm.value['password']
                 "
                 class="alert alert-danger my-1"
                 role="alert"
@@ -120,7 +120,7 @@
                 Password not matched
               </div>
             </div>
-            <a routerLink="/admin/login"
+            <a 
               ><input
                 (click)="checkForm()"
                 type="submit"

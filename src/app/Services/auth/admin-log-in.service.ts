@@ -9,7 +9,7 @@ export class AdminLogInService {
 
   isAuth = false;
 
-  constructor(private myHttp: HttpClient, private route: Router) { }
+  constructor(private myHttp: HttpClient, private router: Router) { }
 
   private baseUrl = 'https://travel-8ztv.onrender.com/v1/users/sign-in/admin';
 
@@ -23,11 +23,17 @@ export class AdminLogInService {
     this.isAuth = false;
     localStorage.removeItem('token');
     localStorage.removeItem('id');
-    //name -image - email
-    this.route.navigate(['']);
+    localStorage.removeItem('username');
+    localStorage.removeItem('phone');
+    localStorage.removeItem('email');
+    localStorage.removeItem('ssn');
+    localStorage.removeItem('photo');
+    localStorage.removeItem('visited_tours');
+    
+    this.router.navigate(['admin/login']);
   }
 
-  
+  // if user have token return true
   checkLogin() {
     return localStorage.getItem('token');
   }

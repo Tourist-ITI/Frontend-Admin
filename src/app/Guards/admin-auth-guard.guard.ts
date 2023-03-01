@@ -23,7 +23,7 @@ export class AdminAuthGuardGuard implements CanActivate {
       return true;
     }
 
-    this.route.navigate(['/logIn']);
+    this.route.navigate(['/login']);
     return false;
   }
 
