@@ -27,7 +27,7 @@ export class AdminCreateTourComponent implements OnInit {
 
 
 
-// ---------------- for validating inputs ---------------------
+  // ---------------- for validating inputs ---------------------
   validationForm = new FormGroup({
 
     title: new FormControl('', Validators.required),
@@ -49,16 +49,18 @@ export class AdminCreateTourComponent implements OnInit {
     magical_storytelling: new FormControl('', Validators.required),
     special_treat: new FormControl('', Validators.required),
     // reasons: new FormControl('', Validators.required),
-    coordinates: new FormControl([150, -34], Validators.required),
-
   })
 
-// ---------------------for pushing in tourImages array---------------
+  // ---------------------for pushing in tourImages array---------------
   onFileSelected(event: any) {
 
     if (event.target.files) {
 
       const file = event.target.files[0];
+
+
+      console.log(file);
+
 
       const fileHandle: FileHandle = {
         file: file,
@@ -75,7 +77,7 @@ export class AdminCreateTourComponent implements OnInit {
   };
 
 
-// ---------------------for pushing in foodImages array---------------
+  // ---------------------for pushing in foodImages array---------------
   onFileSelected2(event: any) {
 
     if (event.target.files) {
@@ -96,7 +98,7 @@ export class AdminCreateTourComponent implements OnInit {
   };
 
 
-// ---------------------for pushing in reasons array---------------
+  // ---------------------for pushing in reasons array---------------
   getReasons(event: any) {
 
     if (event.target.value) {
@@ -110,15 +112,15 @@ export class AdminCreateTourComponent implements OnInit {
 
   }
 
-// ----------------for removing tour images -------------
-removeImage(i: any) {
+  // ----------------for removing tour images -------------
+  removeImage(i: any) {
 
     this.tourImages?.splice(i, 1);
     console.log(this.tourImages);
 
   }
 
-// ----------------for removing food images -------------
+  // ----------------for removing food images -------------
   removeImage2(i: any) {
 
     this.foodImages?.splice(i, 1);
@@ -126,30 +128,30 @@ removeImage(i: any) {
 
   }
 
-// ----------------for validating inputs-------------
+  // ----------------for validating inputs-------------
   get titleValid() {
 
     return this.validationForm.controls['title'].valid;
 
   }
 
-// --------------for posting in database---------------
-saveTour() {
+  // --------------for posting in database---------------
+  saveTour() {
 
-  // if (this.validationForm.valid) {
-  this.flag = true;
-  this.createTourService.addTour({ ...this.validationForm.value, photos: [...this.tourImages], expected_photos: [...this.foodImages] }).subscribe();
+    // if (this.validationForm.valid) {
+    this.flag = true;
+    this.createTourService.addTour({ ...this.validationForm.value, photos: this.tourImages.map((item) => item.file), expected_photos: this.foodImages.map(item => item.file) }).subscribe();
 
-  console.log({ ...this.validationForm.value, photos: [...this.tourImages], expected_photos: [...this.foodImages] });
+    console.log({ ...this.validationForm.value, photos: this.tourImages.map((item) => item.file), expected_photos: this.foodImages.map(item => item.file) });
 
-  // }
+    // }
 
-  // else {
-  //   this.flag = false;
-  // }
+    // else {
+    //   this.flag = false;
+    // }
 
 
-}
+  }
 
 
 }
