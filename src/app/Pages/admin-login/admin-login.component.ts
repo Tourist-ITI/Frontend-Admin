@@ -26,7 +26,29 @@ export class AdminLoginComponent implements OnInit {
   login() {
     if (this.validationForm.valid) {
       this.flag = true;
-      this.adminLoginService.loginAdmin(this.validationForm.value).subscribe();
+      this.adminLoginService.loginAdmin(this.validationForm.value).subscribe(
+
+        {
+          next: (res: any) => {
+
+            console.log(res);
+            //image - name - email
+            localStorage.setItem('token', res.data.access_token);
+            localStorage.setItem('id', res.data.id);
+            //sweetAlert
+
+          },
+
+
+          error: (err) => {
+
+            console.log(err);
+
+
+          }
+        }
+
+      );
       console.log(this.validationForm);
     }
 
@@ -46,6 +68,6 @@ export class AdminLoginComponent implements OnInit {
     return this.validationForm.controls['password'].valid;
   }
 
-  
+
 
 }
