@@ -1,1 +1,91 @@
-<p>admin-login works!</p>
+<!-- <p>admin-login works!</p> -->
+<section id="login">
+  <div class="container">
+    <div
+      class="row justify-content-evenly align-items-center flex-md-row flex-column-reverse"
+    >
+      <div class="col-md-5">
+        <div class="mb-3 text-center">
+          <h3 class="text-center">Welcome</h3>
+          <h6>Please Enter Your Details Below</h6>
+        </div>
+        <pre></pre>
+        <div>
+          <form [formGroup]="validationForm" action="/admin/home">
+            <div class="mb-3">
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="Example@mail.com"
+              />
+
+              <div
+                *ngIf="
+                  !flag || (!emailValid && this.validationForm.value['email'])
+                "
+                class="alert alert-danger my-1"
+                role="alert"
+              >
+                Wrong email format
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input
+                formControlName="password"
+                type="password"
+                class="form-control"
+                placeholder="Enter Your Password"
+              />
+              <div
+                *ngIf="
+                  !flag ||
+                  (!passwordValid && this.validationForm.value['password'])
+                "
+                class="alert alert-danger my-1"
+                role="alert"
+              >
+                Weak password
+              </div>
+            </div>
+            <!-- <input
+                type="submit"
+                class="btn btn-dark w-100 my-3"
+                value="Login"
+                (click)="login()"
+              /> -->
+            <pre></pre>
+            <a routerLink="/admin/home"
+              ><input
+                type="submit"
+                class="btn btn-dark w-100 my-3"
+                value="Login"
+            /></a>
+
+            <pre></pre>
+
+            <pre></pre>
+            <div class="text-center">
+              <span
+                >Don't have an account?
+                <a routerLink="/admin/signUp">Signup</a></span
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-5 d-flex mb-3">
+        <div class="login-img d-flex">
+          <img
+            src="../../../assets/images/admin_Login/admin_logIn1.jpg"
+            class="w-100"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

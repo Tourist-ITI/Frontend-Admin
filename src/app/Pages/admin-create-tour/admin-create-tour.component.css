@@ -19,6 +19,25 @@
 
 .img-side img {
     object-fit: cover;
+    height: 200px;
+}
+
+.img-side i{
+position: absolute;
+cursor: pointer;
+top: -20px;
+right: -10px;
+
+border-radius: 50%;
+width: 20px;
+font-size: 20px;
+height: auto;
+text-align: center;
+}
+
+.img-side i:hover{
+
+color: red;
 }
 
 .row-second {

@@ -7,9 +7,41 @@
             <input
               formControlName="title"
               type="text"
-              class="form-control"
+              class="form-control mb-2"
               id="formGroupExampleInput"
               placeholder="Tour title"
+            />
+
+            <!-- <div
+              *ngIf="
+                !flag || (!titleValid && this.validationForm.value['title'])
+              "
+              class="alert alert-danger my-1"
+              role="alert"
+            >
+              Required
+            </div> -->
+
+            <input
+              formControlName="person_cost"
+              type="text"
+              class="form-control mb-2"
+              id="formGroupExampleInput"
+              placeholder="Price per person"
+            />
+            <input
+              formControlName="person_num"
+              type="text"
+              class="form-control mb-2"
+              id="formGroupExampleInput"
+              placeholder="No. Clients"
+            />
+            <input
+              formControlName="start_date"
+              type="date"
+              class="form-control mb-2"
+              id="formGroupExampleInput"
+              placeholder="Tour Start Date"
             />
 
             <div class="row row-second">
@@ -21,7 +53,6 @@
                 <!-- --------------------Select Image------------------------ -->
                 <div>
                   <input
-                    formControlName="photos"
                     multiple
                     class="form-control mb-2"
                     type="file"
@@ -35,31 +66,10 @@
               <!-- --------------Images-Preview------------------- -->
               <div class="col-9">
                 <div class="row">
-                  <div class="col">
+                  <div *ngFor="let file of tourImages; let i = index;" class="col-3 position-relative">
                     <div class="img-side mb-2">
-                      <img
-                        src="../../../assets/create-tour/alex-4.jpg"
-                        class="w-100"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="img-side mb-1">
-                      <img
-                        src="../../../assets/create-tour/alex-5.jpg"
-                        class="w-100"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="img-side">
-                      <img
-                        src="../../../assets/create-tour/alex-6.jpg"
-                        class="w-100"
-                        alt=""
-                      />
+                      <i (click)="removeImage(i)" class="fa-regular fa-circle-xmark"></i>
+                      <img [src]="file.url" class="w-100" alt="" />
                     </div>
                   </div>
                 </div>
@@ -200,25 +210,25 @@
 
                 <div>
                   <input
-                    formControlName="reasons"
+                    (change)="getReasons($event)"
                     type="text"
                     class="form-control mb-2"
                     id="formGroupExampleInput"
                   />
                   <input
-                    formControlName="reasons"
+                    (change)="getReasons($event)"
                     type="text"
                     class="form-control mb-2"
                     id="formGroupExampleInput"
                   />
                   <input
-                    formControlName="reasons"
+                    (change)="getReasons($event)"
                     type="text"
                     class="form-control mb-2"
                     id="formGroupExampleInput"
                   />
                   <input
-                    formControlName="reasons"
+                    (change)="getReasons($event)"
                     type="text"
                     class="form-control mb-2"
                     id="formGroupExampleInput"
@@ -236,45 +246,27 @@
                   <i class="fa-solid fa-file-image"></i>
                 </div>
 
+                <!-- --------------------Select Image------------------------ -->
+
                 <div>
                   <input
-                    formControlName="expected_photos"
                     multiple
                     class="form-control mb-2"
                     type="file"
-                    id="image-tour"
+                    id="image-food"
                     accept="image/*"
-                    (change)="onFileSelected($event)"
+                    (change)="onFileSelected2($event)"
                   />
                 </div>
+
+                <!-- --------------Images-Preview------------------- -->
               </div>
               <div class="col-9">
                 <div class="row">
-                  <div class="col">
-                    <div class="img-side mb-2">
-                      <img
-                        src="../../../assets/create-tour/alex-4.jpg"
-                        class="w-100"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="img-side mb-1">
-                      <img
-                        src="../../../assets/create-tour/alex-5.jpg"
-                        class="w-100"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="img-side">
-                      <img
-                        src="../../../assets/create-tour/alex-6.jpg"
-                        class="w-100"
-                        alt=""
-                      />
+                  <div *ngFor="let file of foodImages; let i = index;" class="col-3">
+                    <div class="img-side mb-2 position-relative">
+                      <i (click)="removeImage2(i)" class="fa-regular fa-circle-xmark"></i>
+                      <img [src]="file.url" class="w-100" alt="" />
                     </div>
                   </div>
                 </div>

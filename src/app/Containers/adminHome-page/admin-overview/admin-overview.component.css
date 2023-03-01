@@ -1,0 +1,112 @@
+
+/* Hager variables
+--fontFamily : "Inter";
+--fs-xl:3.8rem;
+--fs-lg:3rem;
+--fs-md:1.4rem;
+--fs-s-md:1.3rem;
+--pt:8rem;
+--pt-s:4rem;
+--pt-xs:2rem;
+--white-color:#fff;
+--light-gray:#3c3a3a;
+--baby-blue :#009EB7;
+--baby-blue-hover :#048599;
+--full-viewPort :100vh;
+--text-captalized: capitalize;
+--text-centered: center; 
+--black-color: #272727;
+--white-color: #FFF;
+--yellow-color: #FFC857;
+--blue-color: #009FB7;
+--gray-color: #696773;
+--lightgray-color: #e0e0e0;
+--red-color: #DB3A34;
+--fb-color: #1877F2;
+*/
+
+#adminOverView {
+--yellow-color: #FFC857;
+--blue-color: #009FB7;
+--lightgray-color: #e0e0e0;
+--red-color: #DB3A34;
+--black-color: #272727;
+
+
+}
+#adminOverView .row {
+    width: 83%;
+    min-height: 29vh;
+}
+/* .card {
+display: grid; 
+grid-template-columns: 1fr 1fr 1fr 1fr; 
+grid-template-rows: 1fr; 
+grid-template-areas: ". . ."; 
+    border: 2px solid red;
+} */
+.yellowCard {
+    background-color: var(--yellow-color);
+    color: #fff;
+}
+.blueCard {
+    background-color: var(--blue-color);
+    color: #fff;
+
+}
+.redCard {
+    background-color: var(--red-color);
+
+    color: #fff;
+
+}
+.blackCard {
+    background-color: var(--black-color);
+
+    color: #fff;
+
+}
+
+/********* mediaQuires ******/
+/*mobile screen*/
+/* less than 768px */
+ @media(max-width:768px)
+{
+    .card {
+        margin-top: 1rem;
+    }
+
+} 
+
+/*ipad screen*/
+/* more than 769px and less than 992px */
+ @media(min-width:769px) and (max-width:992px)
+{
+    .card {
+        margin-top: 1rem;
+    }
+    
+} 
+
+/*large screen as laptop*/
+@media(min-width:993px) and (max-width:1200px)
+{
+    .blackCard {
+        margin-top: 1rem;
+    } 
+}
+
+/*large screen as laptop*/
+ 
+ /* @media(min-width:1201px)
+{
+    .cards {
+        gap:10px;
+        grid-template-columns: 1fr 1fr; 
+
+
+    }
+    
+
+}  */
+

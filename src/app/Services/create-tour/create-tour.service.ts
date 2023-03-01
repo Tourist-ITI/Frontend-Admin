@@ -11,7 +11,7 @@ export class CreateTourService {
   baseUrl = 'https://travel-8ztv.onrender.com/v1/tours';
 
 
-  addTour(tour: FormData) {
+  addTour(tour: any) {
 
     return this.http.post(this.baseUrl, tour);  //return observable object
 
