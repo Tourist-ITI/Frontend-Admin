@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class AdminCreateTourComponent implements OnInit {
 
 
-isLoading= false;
+  isLoading= false;
 
   tourImages: any[] = [];
   foodImages: any[] = [];

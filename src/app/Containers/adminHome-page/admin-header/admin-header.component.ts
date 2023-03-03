@@ -12,7 +12,7 @@ export class AdminHeaderComponent implements OnInit, AfterViewChecked {
 
   // view name and photo in navbar
   username = localStorage.getItem('username');
-  photo = localStorage.getItem('photo');
+  // photo = localStorage.getItem('photo');
 
 
   constructor(private AdminLoginService: AdminLogInService) { }

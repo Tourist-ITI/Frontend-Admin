@@ -40,7 +40,7 @@ export class AdminProfileComponent implements OnInit {
 
   constructor(private AdminLoginService: AdminLogInService, private modalService: NgbModal, private updateAdminService: UpdateAdminService) {
   
-    this.userId = localStorage.getItem('id');
+    this.userId = localStorage.getItem('_id');
   
   }
 

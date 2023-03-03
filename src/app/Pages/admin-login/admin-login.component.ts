@@ -37,7 +37,7 @@ export class AdminLoginComponent implements OnInit {
 
             //image
             localStorage.setItem('token', res.data.access_token);
-            localStorage.setItem('id', res.data.userBody._id);
+            localStorage.setItem('_id', res.data.userBody._id);
             localStorage.setItem('username', res.data.userBody.username);
             localStorage.setItem('phone', res.data.userBody.phone);
             localStorage.setItem('email', res.data.userBody.email);
@@ -49,7 +49,7 @@ export class AdminLoginComponent implements OnInit {
             Swal.fire('Thank You...', 'You Logged In Successfully', 'success');
 
             //Routing to admin home page 
-            this.router.navigate([`/admin/home/${localStorage.getItem('id')}`]);
+            this.router.navigate([`/admin/home/${localStorage.getItem('_id')}`]);
 
 
           },

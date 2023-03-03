@@ -1,12 +1,17 @@
 <nav class="navbar navbar-light bg-light">
-    <div class="container">
-        <app-off-canvas></app-off-canvas>
-      <a *ngIf="loginStatus" class="navbar-brand">
-        <i *ngIf="!photo" class="avatar fa-regular fa-circle-user"></i>
-        <img *ngIf="photo" src="{{photo}}" alt="" width="54" height="54" class="d-inline-block align-text-center">
-         <span class="username">{{username}}</span>
-         <button (click)="logOut()" class="btn ps-4 fs-6">Logout</button>
-      </a>
-      <a *ngIf="!loginStatus" routerLink="/admin/login" class="text-decoration-none">Login</a>
-    </div>
-  </nav>
+  <div class="container">
+    <app-off-canvas></app-off-canvas>
+    <a *ngIf="loginStatus" class="navbar-brand">
+      <i class="avatar fa-regular fa-circle-user"></i>
+      <!-- <img *ngIf="photo" src="{{photo}}" alt="" width="54" height="54" class="d-inline-block align-text-center"> -->
+      <span class="username">{{ username }}</span>
+      <button (click)="logOut()" class="btn ps-4 fs-6">Logout</button>
+    </a>
+    <a
+      *ngIf="!loginStatus"
+      routerLink="/admin/login"
+      class="text-decoration-none"
+      >Login</a
+    >
+  </div>
+</nav>
