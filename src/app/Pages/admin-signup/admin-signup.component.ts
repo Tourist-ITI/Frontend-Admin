@@ -29,7 +29,7 @@ export class AdminSignupComponent implements OnInit {
       Validators.minLength(11),
       Validators.maxLength(11),
     ]),
-    nationalId: new FormControl('', [
+    ssn: new FormControl('', [
       Validators.required,
       Validators.minLength(16),
       Validators.maxLength(16),
@@ -110,7 +110,7 @@ export class AdminSignupComponent implements OnInit {
     return this.validationForm.controls['phone'].valid;
   }
   get nationalIdValid() {
-    return this.validationForm.controls['nationalId'].valid;
+    return this.validationForm.controls['ssn'].valid;
   }
   get emailValid() {
     return this.validationForm.controls['email'].valid;

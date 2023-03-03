@@ -17,7 +17,8 @@ import { AdminOverviewComponent } from './Containers/adminHome-page/admin-overvi
 import { OffCanvasComponent } from './Containers/adminHome-page/off-canvas/off-canvas.component';
 import { AdminSearchComponent } from './Containers/adminHome-page/admin-search/admin-search.component';
 import { AdminModifyCardComponent } from './Containers/adminHome-page/admin-modify-card/admin-modify-card.component';
-
+import { ErrorComponent } from './Pages/error/error.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -33,15 +34,20 @@ import { AdminModifyCardComponent } from './Containers/adminHome-page/admin-modi
     AdminOverviewComponent,
     OffCanvasComponent,
     AdminSearchComponent,
-    AdminModifyCardComponent
+    AdminModifyCardComponent,
+    ErrorComponent,
+
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

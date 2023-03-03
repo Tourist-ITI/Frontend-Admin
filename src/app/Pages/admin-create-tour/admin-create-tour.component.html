@@ -1,3 +1,5 @@
+<app-admin-header></app-admin-header>
+
 <section id="tour">
   <div class="container">
     <div class="row row-style">
@@ -14,7 +16,7 @@
 
             <!-- <div
               *ngIf="
-                !flag || (!titleValid && this.validationForm.value['title'])
+                 (!titleValid && this.validationForm.value['title'])
               "
               class="alert alert-danger my-1"
               role="alert"
@@ -66,9 +68,15 @@
               <!-- --------------Images-Preview------------------- -->
               <div class="col-9">
                 <div class="row">
-                  <div *ngFor="let file of tourImages; let i = index;" class="col-3 position-relative">
+                  <div
+                    *ngFor="let file of tourImages; let i = index"
+                    class="col-3 position-relative"
+                  >
                     <div class="img-side mb-2">
-                      <i (click)="removeImage(i)" class="fa-regular fa-circle-xmark"></i>
+                      <i
+                        (click)="removeImage(i)"
+                        class="fa-regular fa-circle-xmark"
+                      ></i>
                       <img [src]="file.url" class="w-100" alt="" />
                     </div>
                   </div>
@@ -119,10 +127,8 @@
                         aria-label="Floating label select example"
                       >
                         <option disabled selected>Select</option>
-                        <option value="Only you and your host">
-                          Only you and your host
-                        </option>
-                        <option value="Not included">Not included</option>
+                        <option value="true">Only you and your host</option>
+                        <option value="false">Not included</option>
                       </select>
                     </div>
                   </div>
@@ -142,8 +148,8 @@
                         aria-label="Floating label select example"
                       >
                         <option disabled selected>Select</option>
-                        <option value="Food tour">Food tour</option>
-                        <option value="Not included">Not included</option>
+                        <option value="true">Food tour</option>
+                        <option value="false">Not included</option>
                       </select>
                     </div>
                   </div>
@@ -161,8 +167,8 @@
                         aria-label="Floating label select example"
                       >
                         <option disabled selected>Select</option>
-                        <option value="Walking tour">Walking tour</option>
-                        <option value="Not included">Not included</option>
+                        <option value="true">Walking tour</option>
+                        <option value="false">Not included</option>
                       </select>
                     </div>
                   </div>
@@ -180,8 +186,8 @@
                         aria-label="Floating label select example"
                       >
                         <option disabled selected>Select</option>
-                        <option value="Carbon Neutrals">Carbon Neutrals</option>
-                        <option value="Not included">Not included</option>
+                        <option value="true">Carbon Neutrals</option>
+                        <option value="false">Not included</option>
                       </select>
                     </div>
                   </div>
@@ -263,9 +269,15 @@
               </div>
               <div class="col-9">
                 <div class="row">
-                  <div *ngFor="let file of foodImages; let i = index;" class="col-3">
+                  <div
+                    *ngFor="let file of foodImages; let i = index"
+                    class="col-3"
+                  >
                     <div class="img-side mb-2 position-relative">
-                      <i (click)="removeImage2(i)" class="fa-regular fa-circle-xmark"></i>
+                      <i
+                        (click)="removeImage2(i)"
+                        class="fa-regular fa-circle-xmark"
+                      ></i>
                       <img [src]="file.url" class="w-100" alt="" />
                     </div>
                   </div>
@@ -319,7 +331,6 @@
               </div>
             </div>
 
-
             <div class="mt-5 text-center">
               <button
                 (click)="saveTour()"
@@ -333,5 +344,22 @@
         </div>
       </div>
     </div>
+
+
+
   </div>
+
+
+
+  <div *ngIf="isLoading" class="loading">
+    <div class="d-flex justify-content-center h-100">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+
 </section>
+
+

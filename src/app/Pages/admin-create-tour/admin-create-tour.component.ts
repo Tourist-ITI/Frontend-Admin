@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { FileHandle } from 'src/app/Models/file-handle.model';
 import { CreateTourService } from 'src/app/Services/create-tour/create-tour.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-admin-create-tour',
@@ -12,14 +13,14 @@ import { CreateTourService } from 'src/app/Services/create-tour/create-tour.serv
 export class AdminCreateTourComponent implements OnInit {
 
 
-  tourImages: FileHandle[] = [];
-  foodImages: FileHandle[] = [];
+isLoading= false;
+
+  tourImages: any[] = [];
+  foodImages: any[] = [];
   reasons: any[] = [];
-  flag: boolean;
 
-  constructor(private createTourService: CreateTourService, private sanitizer: DomSanitizer) {
+  constructor(private createTourService: CreateTourService, private router: Router) {
 
-    this.flag = true;
   };
 
 
@@ -59,16 +60,17 @@ export class AdminCreateTourComponent implements OnInit {
       const file = event.target.files[0];
 
 
+
       console.log(file);
 
 
-      const fileHandle: FileHandle = {
-        file: file,
-        url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
-      };
+      // const fileHandle: FileHandle = {
+      //   file: file,
+      //   url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
+      // };
 
 
-      this.tourImages.push(fileHandle);
+      this.tourImages.push(file);
       console.log(this.tourImages);
 
     }
@@ -84,13 +86,16 @@ export class AdminCreateTourComponent implements OnInit {
 
       const file = event.target.files[0];
 
-      const fileHandle: FileHandle = {
-        file: file,
-        url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
-      };
 
 
-      this.foodImages.push(fileHandle);
+
+      // const fileHandle: FileHandle = {
+      //   file: file,
+      //   url: this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
+      // };
+
+
+      this.foodImages.push(file);
       console.log(this.foodImages);
 
     }
@@ -138,20 +143,50 @@ export class AdminCreateTourComponent implements OnInit {
   // --------------for posting in database---------------
   saveTour() {
 
-    // if (this.validationForm.valid) {
-    this.flag = true;
-    this.createTourService.addTour({ ...this.validationForm.value, photos: this.tourImages.map((item) => item.file), expected_photos: this.foodImages.map(item => item.file) }).subscribe();
 
-    console.log({ ...this.validationForm.value, photos: this.tourImages.map((item) => item.file), expected_photos: this.foodImages.map(item => item.file) });
+    const formData = new FormData();
 
-    // }
+    Object.entries(this.validationForm.value).forEach(([key, value]) => formData.append(key, value!));
 
-    // else {
-    //   this.flag = false;
-    // }
+    this.foodImages.forEach(image => formData.append('photos', image));
+    this.tourImages.forEach(image => formData.append('expected_photos', image));
+    this.reasons.forEach(reason => formData.append('reasons', reason));
 
+
+
+    if (this.validationForm.valid) {
+
+      this.isLoading=true;
+
+      this.createTourService.addTour(formData).subscribe(
+
+        {
+
+          
+          next: (res) => {
+            console.log(res);
+            this.isLoading = false;
+            Swal.fire('Thank You...', 'Your Tour Added Successfully', 'success');
+            this.router.navigate([`/admin/home/${localStorage.getItem('id')}`]);
+          },
+
+
+          error: (err) => {
+            console.log(err);
+            this.isLoading = false;
+            Swal.fire('Sorry....', 'There Was An Error, Please Try Again', 'error');
+          }
+
+        }
+
+      );
+
+    }
+
+    else {
+      Swal.fire('Oops...', 'Please Fill All Inputs', 'error');
+    }
 
   }
-
 
 }

@@ -1,62 +1,39 @@
-<div class="card mb-3 m-auto mt-4 border-0" style="max-width: 845px">
+<div *ngFor="let tour of data" class="card mb-3 m-auto mt-4 border-0" style="max-width: 845px">
   <div class="row g-0">
     <div class="col-md-4">
       <img
-        src="../../../../assets/images/adminHome/Cairo-Egypt.jpg"
+        src="{{tour.photos[0].url}}"
         class="img-fluid rounded-start"
         alt="..."
       />
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Cairo</h5>
+        <h5 class="card-title">{{tour.title}}</h5>
         <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+          {{tour.include}}
         </p>
-        <p class="card-text">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </p>
-        <div class="d-flex justify-content-end">
-          <button class="border-0 bg-transparent">
-            <i class="fa-solid fa-pen me-2"></i>
-          </button>
-          <button class="border-0 bg-transparent">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card mb-3 m-auto mt-4 border-0" style="max-width: 845px">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img
-        src="../../../../assets/images/adminHome/luxor-egypt-things-to-do-itinerary-image-33.jpg"
-        class="img-fluid rounded-start"
-        alt="..."
-      />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Luxor</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-        <p class="card-text">
-          <small class="text-muted">Last updated 3 mins ago</small>
+        <p class="card-text">Price:
+          <small class="text-muted">{{tour.person_cost}}$</small>
         </p>
         <div class="d-flex justify-content-end">
           <button class="border-0 bg-transparent">
             <i class="fa-solid fa-pen me-2"></i>
           </button>
           <button class="border-0 bg-transparent">
-            <i class="fa-solid fa-trash"></i>
+            <i (click)="deleteTour(tour)" class="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+.offcanvas.offcanvas-start {
+    width: 250px;
+}
+
+.btnMenu{
+background-color: var(--blue-color);
+}
+
+.btnBg{
+background-color: var(--black-color);
+}

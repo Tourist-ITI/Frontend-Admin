@@ -48,7 +48,7 @@
 
             <div class="mb-3">
               <input
-                formControlName="nationalId"
+                formControlName="ssn"
                 type="tel"
                 class="form-control"
                 placeholder="Enter Your National Id"
@@ -56,7 +56,7 @@
               <div
                 *ngIf="
                   
-                  !nationalIdValid && this.validationForm.value['nationalId']
+                  !nationalIdValid && this.validationForm.value['ssn']
                 "
                 class="alert alert-danger my-1"
                 role="alert"

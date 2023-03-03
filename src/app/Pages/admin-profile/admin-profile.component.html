@@ -1,1 +1,282 @@
-<p>admin-profile works!</p>
+<section id="admin-profile">
+  <div class="container-fluid">
+    <div class="row justify-content-evenly">
+      <div class="col-1">
+        <button
+          class="btn text-white"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasScrolling"
+          aria-controls="offcanvasScrolling"
+        >
+          Menu
+        </button>
+
+        <div
+          class="offcanvas offcanvas-start"
+          data-bs-scroll="true"
+          data-bs-backdrop="false"
+          tabindex="-1"
+          id="offcanvasScrolling"
+          aria-labelledby="offcanvasScrollingLabel"
+        >
+          <div class="offcanvas-header text-center">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+              <button
+                routerLink="/admin/createtour/{{ userId }}"
+                class="btn text-white mb-2 btn-tour"
+              >
+                <i class="fa-sharp fa-solid fa-circle-plus text-white fs-5"></i>
+                Create tour
+              </button>
+
+              <button
+                routerLink="/admin/home/{{ userId }}"
+                class="btn text-white mb-2"
+              >
+                Home
+              </button>
+              <button (click)="logOut()" class="btn text-white">Logout</button>
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-10">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="admin-main">
+              <div class="bg-cover">
+                <div
+                  class="admin d-flex justify-content-center align-items-center flex-column"
+                >
+                  <div class="admin-img">
+                    <img
+                      src="{{ editedUser?.photo[0]?.url}}"
+                      alt=""
+                    />
+                  </div>
+                  <div class="admin-name">
+                    <h4 class="text-capitalize">{{ editedUser?.username }}</h4>
+                  </div>
+                  <div><button class="btn btn-warning btnEdit" (click)="open(content)">Edit</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-second justify-content-center">
+          <div class="col-8">
+
+            <div class="admin-info d-flex align-items-center mb-3">
+              <div>
+                <h5 class="mb-0">National ID</h5>
+              </div>
+              <div class="ms-5">
+                <span>{{ssn}}</span>
+              </div>
+            </div>
+            <div class="admin-info d-flex align-items-center mb-3">
+              <div>
+                <h5 class="mb-0">Email</h5>
+              </div>
+              <div class="ms-5">
+                <span>{{email}}</span>
+              </div>
+            </div>
+            <div class="admin-info d-flex align-items-center mb-3">
+              <div>
+                <h5 class="mb-0">Phone Number</h5>
+              </div>
+              <div class="ms-5">
+                <span>{{ editedUser?.phone}}</span>
+              </div>
+            </div>
+            <div class="admin-info d-flex align-items-center mb-3">
+              <div>
+                <h5 class="mb-0">Subscription type</h5>
+              </div>
+              <div class="ms-5">
+                <span>Tour Organizer</span>
+              </div>
+            </div>
+            <div class="admin-info d-flex align-items-center mb-3">
+              <div>
+                <h5 class="mb-0">City</h5>
+              </div>
+              <div class="ms-5">
+                <span>{{editedUser?.city}}</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-4">
+            <div
+              class="cash d-flex justify-content-center align-items-center flex-column gap-3"
+            >
+              <div class="d-flex align-items-center gap-2">
+                <div><h4 class="mb-0">Cash</h4></div>
+                <div><span class="fs-4">1,000</span></div>
+              </div>
+              <div class="w-50">
+                <button class="btn text-white w-100">Transfer Money</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+
+
+
+  <div class="modal-body">
+    <form [formGroup]="validationForm">
+      <div class="mb-3">
+        <label for="name">Admin Name</label>
+        <div class="input-group">
+          <input
+            id="username"
+            class="form-control"
+            placeholder="name"
+            name="username"
+            formControlName="username"
+            type="text"
+            value="{{ editedUser?.username }}"
+          />
+          <div
+            *ngIf="
+              !flag || (!nameValid && this.validationForm.value['username'])
+            "
+            class="alert alert-danger my-1"
+            role="alert"
+          >
+            Name must be characters only
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="city">City</label>
+        <div class="input-group">
+          <input
+            id="city"
+            formControlName="city"
+            class="form-control"
+            placeholder="city"
+            name="city"
+            type="text"
+            value="{{ editedUser?.city }}"
+          />
+          <div
+            *ngIf="!flag || (!nameValid && this.validationForm.value['city'])"
+            class="alert alert-danger my-1"
+            role="alert"
+          >
+            City must be characters only
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="phone">Phone</label>
+        <div class="input-group">
+          <input
+            id="phone"
+            formControlName="phone"
+            class="form-control"
+            placeholder="phone"
+            name="phone"
+            type="tel"
+            value="{{ editedUser?.phone }}"
+          />
+          <div
+            *ngIf="
+              !flag || (!phoneValid && this.validationForm.value['phone'])
+            "
+            class="alert alert-danger my-1"
+            role="alert"
+          >
+            Phone must be 11 digits
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="bio">Bio</label>
+        <div class="input-group">
+          <input
+            id="bio"
+            formControlName="bio"
+            class="form-control"
+            placeholder="bio"
+            name="bio"
+            type="text"
+            value="editedUser?.bio"
+          />
+          <div
+            *ngIf="!flag || (!bioValid && this.validationForm.value['bio'])"
+            class="alert alert-danger my-1"
+            role="alert"
+          >
+            Name must be characters only
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="Profile image">Profile image</label>
+        <div class="input-group">
+          <input
+            id="Profile image"
+            class="form-control"
+            type="file"
+            (change)="handlePhotoInput($event)"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="Background image">Background image</label>
+        <div class="input-group">
+          <input
+            id="Background image"
+            class="form-control"
+            type="file"
+            (change)="handleCoverPhotoInput($event)"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="updateProfile()"
+      (click)="checkForm()"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+
+
+</ng-template>
+
+<hr />

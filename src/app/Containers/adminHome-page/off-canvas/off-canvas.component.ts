@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-off-canvas',
@@ -12,8 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 export class OffCanvasComponent implements OnInit {
 
   id = 0;
+  url = this.router.url;
 
-  constructor( myActivatedRoute: ActivatedRoute) {
+  constructor(myActivatedRoute: ActivatedRoute, private router: Router) {
 
     this.id = myActivatedRoute.snapshot.params['id'];
 

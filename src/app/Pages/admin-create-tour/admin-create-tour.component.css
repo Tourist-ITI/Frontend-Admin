@@ -1,7 +1,10 @@
 /* -----------Start section tour-main ------------*/
+
+
 #tour {
     background-color: var(--lightgray-color);
     padding: 50px 0px;
+    position: relative;
 }
 
 
@@ -22,22 +25,22 @@
     height: 200px;
 }
 
-.img-side i{
-position: absolute;
-cursor: pointer;
-top: -20px;
-right: -10px;
+.img-side i {
+    position: absolute;
+    cursor: pointer;
+    top: -20px;
+    right: -10px;
 
-border-radius: 50%;
-width: 20px;
-font-size: 20px;
-height: auto;
-text-align: center;
+    border-radius: 50%;
+    width: 20px;
+    font-size: 20px;
+    height: auto;
+    text-align: center;
 }
 
-.img-side i:hover{
+.img-side i:hover {
 
-color: red;
+    color: red;
 }
 
 .row-second {
@@ -62,7 +65,8 @@ color: red;
 }
 
 
-.form-control:focus,.form-select:focus {
+.form-control:focus,
+.form-select:focus {
     box-shadow: 0 0 0 0.1rem var(--black-color);
     border: 1px solid #ced4da;
 }
@@ -73,9 +77,7 @@ color: red;
     height: calc(2.5rem + 2px);
 }
 
-.form-select:focus
-
-textarea {
+.form-select:focus textarea {
     resize: none;
 }
 
@@ -85,3 +87,25 @@ textarea {
 }
 
 /* -----------End section tour-main ------------*/
+
+/* -----------start spinner ------------*/
+
+.loading {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+.spinner-border {
+
+    position: absolute;
+    bottom: 20%;
+
+}
+
+/* -----------End spinner ------------*/
