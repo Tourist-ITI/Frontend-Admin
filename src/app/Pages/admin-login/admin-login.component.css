@@ -1,0 +1,108 @@
+#login {
+    margin-top: 100px;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid var(--lightgray-color);
+    border-radius: 0px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.1rem var(--black-color);
+}
+
+.brdr {
+    border: 1px solid var(--lightgray-color);
+}
+
+.login-img img {
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    object-fit: cover;
+}
+
+.form-parg {
+    position: relative;
+    color: var(--black-color);
+}
+
+.form-parg::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    top: 50%;
+    right: 24%;
+    background-color: var(--lightgray-color);
+    display: block;
+}
+
+.form-parg::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    top: 50%;
+    left: 24%;
+    background-color: var(--lightgray-color);
+    display: block;
+}
+
+.fb-btn {
+    position: relative;
+}
+
+.fb-btn i {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translate(0, -50%);
+    color: var(--fb-color);
+    font-size: 20px;
+}
+
+.google-btn {
+    position: relative;
+}
+
+.google-btn i {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translate(0, -50%);
+    background: linear-gradient(145deg, #34a853, #4285f4, #fbbc05, #ea4335);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18px;
+}
+
+.fb-btn:hover button {
+    background-color: var(--fb-color);
+    color: var(--white-color);
+}
+
+.google-btn:hover button {
+    background: linear-gradient(145deg, #34a853, #4285f4, #fbbc05, #ea4335);
+    color: var(--white-color);
+}
+
+
+.fb-btn:hover i {
+    color: var(--white-color);
+}
+
+.google-btn:hover i {
+    background: none;
+    color: var(--white-color);
+    -webkit-text-fill-color: unset;
+}
+
+.login-img {
+    object-fit: cover;
+}
+
+.alert {
+    padding: 0.6rem 0.75rem;
+}
+

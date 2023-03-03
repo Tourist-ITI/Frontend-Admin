@@ -1,0 +1,75 @@
+#admin-profile {
+    --bs-offcanvas-width: 300px;
+    background-color: var(--lightgray-color);
+    height: fit-content;
+    padding: 20px 0px;
+}
+
+.admin-main {
+    padding: 20px 20px 100px 20px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+}
+
+
+.bg-cover {
+    background-image: url(../../../assets/Images/admin-profile/Header.png);
+    background-position: center center;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.admin {
+    transform: translate(0, 50%);
+}
+
+.admin-img img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+
+.admin-name h4,
+.cash span {
+    color: var(--blue-color);
+}
+
+.btn {
+    background-color: var(--blue-color);
+}
+
+.btn-tour {
+    background-color: var(--black-color);
+}
+
+.row-second {
+    margin-top: 40px;
+}
+
+.cash {
+    padding: 20px;
+    background-color: var(--white-color);
+    border-radius: 10px;
+
+}
+
+.offcanvas.offcanvas-start {
+    width: 180px;
+
+}
+
+
+.admin-info {
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.admin-info span {
+    color: var(--gray-color);
+}
+
+.btnEdit {
+    background-color: var(--yellow-color);
+    padding: 5px 20px;
+}

@@ -1,0 +1,20 @@
+.logout {
+    cursor: pointer;
+}
+
+
+
+button:hover {
+    color: var(--red-color);
+}
+
+.username {
+    font-size: 25px;
+}
+
+.avatar {
+    font-size: 30px;
+    margin-right: 9px;
+    cursor: pointer;
+}
+

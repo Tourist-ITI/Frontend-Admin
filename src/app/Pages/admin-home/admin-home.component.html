@@ -1,1 +1,24 @@
-<p>admin-home works!</p>
+<!-- <ng-template #content let-offcanvas>
+	<div class="offcanvas-header">
+		<h4 class="offcanvas-title">Offcanvas title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+	<div class="offcanvas-body">
+		<p>One fine body&hellip;</p>
+		<div class="text-end">
+			<button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Close click')">Close</button>
+		</div>
+	</div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openScroll(content)">
+	Scrolling of main content enabled
+</button> -->
+<div id="adminHome">
+<app-admin-header></app-admin-header>
+<app-admin-greeting></app-admin-greeting>
+<app-admin-overview></app-admin-overview>
+<app-admin-search></app-admin-search>
+
+<app-admin-modify-card></app-admin-modify-card>
+</div>
