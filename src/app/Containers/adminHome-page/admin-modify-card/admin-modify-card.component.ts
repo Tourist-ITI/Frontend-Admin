@@ -207,7 +207,7 @@ export class AdminModifyCardComponent implements OnInit {
 
 
 
-  // --------------for posting in database---------------
+  // --------------for updating tour in database---------------
   saveTour() {
 
 

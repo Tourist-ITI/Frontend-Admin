@@ -20,9 +20,11 @@ export class AdminProfileComponent implements OnInit {
   ssn = localStorage.getItem('ssn');
   email = localStorage.getItem('email');
 
+  //for validation
   flag: boolean = true;
+  isLoading = true;
 
-  // data from response
+  // data from response stored here
   username: any;
   phone: any;
   userId: any;
@@ -33,7 +35,6 @@ export class AdminProfileComponent implements OnInit {
 
   File: any;
 
-  isLoading = true;
   photoFile: any;
   coverFile: any;
   editedUser: any;
