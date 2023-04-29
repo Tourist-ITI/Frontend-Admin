@@ -8,9 +8,10 @@ import { AdminSignupComponent } from './Pages/admin-signup/admin-signup.componen
 import { ErrorComponent } from './Pages/error/error.component';
 
 const routes: Routes = [
-  { path: 'admin/home/:id', component: AdminHomeComponent },
+  { path: '', component: AdminLoginComponent, },
   { path: 'admin/login', component: AdminLoginComponent, },
   { path: 'admin/signup', component: AdminSignupComponent },
+  { path: 'admin/home/:id', component: AdminHomeComponent },
   {
     path: 'admin/createtour/:id', component: AdminCreateTourComponent
   },

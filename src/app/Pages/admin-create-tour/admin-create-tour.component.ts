@@ -167,7 +167,7 @@ export class AdminCreateTourComponent implements OnInit {
             console.log(res);
             this.isLoading = false;
             Swal.fire('Thank You...', 'Your Tour Added Successfully', 'success');
-            this.router.navigate([`/admin/home/${localStorage.getItem('id')}`]);
+            this.router.navigate([`/admin/home/${localStorage.getItem('_id')}`]);
           },
 
 

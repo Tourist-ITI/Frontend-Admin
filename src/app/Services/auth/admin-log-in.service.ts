@@ -18,18 +18,19 @@ export class AdminLogInService {
     return this.myHttp.post(this.baseUrl, admin); //return observable object
   }
 
-
+  // when clicking logout
   logout() {
     this.isAuth = false;
     localStorage.removeItem('token');
-    localStorage.removeItem('id');
+    localStorage.removeItem('_id');
+    localStorage.removeItem('tourId');
     localStorage.removeItem('username');
     localStorage.removeItem('phone');
     localStorage.removeItem('email');
     localStorage.removeItem('ssn');
     localStorage.removeItem('photo');
     localStorage.removeItem('visited_tours');
-    
+
     this.router.navigate(['admin/login']);
   }
 
